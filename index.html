@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Prototype Name Generator</title>
+<style>
+* { box-sizing: border-box; }
+body { font-family: system-ui, sans-serif; background: #1a1a2e; color: #eee; 
+       display: flex; flex-direction: column; align-items: center; 
+       justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
+h1 { color: #e94560; margin-bottom: 0.3em; }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 1em 0; }
+select, button { padding: 10px 16px; font-size: 1em; border-radius: 8px; border: none; cursor: pointer; }
+select { background: #16213e; color: #eee; }
+button { background: #e94560; color: white; font-weight: bold; }
+button:hover { background: #ff6b6b; }
+.result { font-size: 2em; margin: 0.8em 0; padding: 0.5em 1em; 
+          background: #16213e; border-radius: 12px; min-width: 280px; text-align: center;
+          border: 2px solid #e94560; }
+.hint { font-size: 0.85em; color: #888; max-width: 400px; text-align: center; }
+.copy-btn { background: #0f3460; font-size: 0.9em; margin-top: 0.5em; }
+</style>
+</head>
+<body>
+
+<h1>🎮 Prototype Namer</h1>
+
+<div class="controls">
+  <select id="theme">
+    <option value="pokemon">Pokémon-ish</option>
+    <option value="space">Star Wars-y</option>
+    <option value="art">Artistic</option>
+    <option value="fantasy">Fantasy</option>
+  </select>
+  <select id="format">
+    <option value="adj-noun">Adjective + Noun</option>
+    <option value="alliterative">Alliterative</option>
+    <option value="codename">Codename v0.X</option>
+  </select>
+  <button onclick="generate()">Generate ✨</button>
+</div>
+
+<div class="result" id="output">Click to generate!</div>
+<button class="copy-btn" onclick="copyName()">📋 Copy</button>
+
+<p class="hint">Edit the word lists in the code to customize for your project's vibe!</p>
+
