@@ -9,7 +9,7 @@ const WORDS = {
       "Harmonious",
       "Cordial",
       "Graceful",
-      "Mysticical",
+      "Mystical",
       "Joyful",
     ],
     noun: [
@@ -166,22 +166,28 @@ function pick(arr: string[]) {
 }
 
 function generate() {
-  const theme = document.getElementById("theme");
-  const format = document.getElementById("format");
-  const { adj, noun } = WORDS[theme.value];
+  const theme = document.getElementById("theme") as HTMLSelectElement;
+  const format = document.getElementById("format") as HTMLSelectElement;
+  const { adj, noun } = WORDS[theme.value as keyof typeof WORDS];
 
-  let name;
+  let name: string;
   if (format.value === "adj-noun") {
     name = `${pick(adj)} ${pick(noun)}`;
   } else {
-    let noun = pick(WORDS);
+    const randomTheme = Object.keys(
+      WORDS,
+    )[
+      Math.floor(Math.random() * Object.keys(WORDS).length)
+    ] as keyof typeof WORDS;
+    const nounValue = pick(WORDS[randomTheme].noun);
 
-    let adj = pick(WORDS[theme.value].adj);
+    const adjValue = pick(WORDS[theme.value as keyof typeof WORDS].adj);
 
-    name = `${adj} ${noun}`;
+    name = `${adjValue} ${nounValue}`;
   }
 
-  document.getElementById("output").textContent = name;
+  const output = document.getElementById("output") as HTMLDivElement;
+  output.textContent = name;
 }
 
 function createGenerateButton() {

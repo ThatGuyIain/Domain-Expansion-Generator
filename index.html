@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Domain Expansion Generator</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Domain Expansion Generator</title>
+  </head>
+  <body>
+    <h1>Domain Expansion Generator</h1>
+    <div class="controls">
+      <select id="theme">
+        <option value="nature">Nature</option>
+        <option value="space">Space</option>
+        <option value="art">Artistic</option>
+        <option value="fantasy">Fantasy</option>
+        <option value="random">Random</option>
+      </select>
+      <select id="format">
+        <option value="adj-noun">Adjective + Noun</option>
+      </select>
+    </div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
 
-<h1>Domain Expansion Generator</h1>
-<div class="controls">
-  <select id="theme">
-    <option value="nature">Nature</option>
-    <option value="space">Space</option>
-    <option value="art">Artistic</option>
-    <option value="fantasy">Fantasy</option>
-    <option value="random">Random</option>
-  </select>
-  <select id="format">
-    <option value="adj-noun">Adjective + Noun</option>
-  </select>
-</div>
-<script type = module src="./src/main.ts"></script>
-
-</body>
-
-
-<div class="result" id="output">Click to generate!</div>
-
+  <div class="result" id="output">Click to generate!</div>
 </html>
-
-
